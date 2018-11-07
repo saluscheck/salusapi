@@ -1,7 +1,7 @@
 document.getElementById('getData').addEventListener('click', getData);
 
 function getData() {
-    var api_path = "http://localhost:8080/sanctions?search="
+    var api_path = "https://salustest-7df6a.appspot.com:8080/sanctions?search="
     var naam = document.getElementById("searchString").value
     var url = api_path + naam
     console.log(naam)
