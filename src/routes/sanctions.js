@@ -1,15 +1,24 @@
-let CustomerModel = require('../models/sanctions.models')
+let SanctionsModel = require('../models/sanctions.models')
 let express = require('express')
 let router = express.Router()
 
-// GET localhost:3000/sanctions
+// GET localhost:8080/sanctions
 router.get('/sanctions', (req, res) => {
   if(!req.query.search) {
     return res.status(400).send('Missing URL parameter: firstName')
   }
 
-  CustomerModel.aggregate( [
-    { $match : { $or: [ { "nameAlias.firstName" : req.query.search }, { "nameAlias.lastName" : req.query.search } ] } },
+  // CustomerModel.aggregate( [
+  //   { $match : { $or: [ { "nameAlias.firstName" : req.query.search },
+  //   { "nameAlias.lastName" : req.query.search } ] } },
+  //   { $unwind : "$nameAlias" }
+
+  const regexName = new RegExp("\\b" + req.query.search + "\\b", "i")
+  console.log("Regex: " + regexName)
+  SanctionsModel.aggregate( [
+    { $match : { $or: [ { "nameAlias.firstName" : { $regex : regexName} },
+    { "nameAlias.lastName" : { $regex : regexName} },
+    { "nameAlias.wholeName" : { $regex : regexName} } ] } },
     { $unwind : "$nameAlias" }
 
   ] )
