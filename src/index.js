@@ -3,6 +3,7 @@ let app = express()
 let personRoute = require('./routes/person')
 let customerRoute = require('./routes/customer')
 let sanctionsRoute = require('./routes/sanctions')
+let sdnRoute = require('./routes/sdn')
 let path = require('path')
 let bodyParser = require('body-parser')
 
@@ -15,11 +16,12 @@ app.use((req, res, next) => {
 app.use(personRoute)
 app.use(customerRoute)
 app.use(sanctionsRoute)
+app.use(sdnRoute)
 app.use(express.static('public'))
 
 // Hander for 404 - Not found
 app.use((req, res, next) => {
-  res.status(404).send('The page you have requested does nog exist!')
+  res.status(404).send('The page you have requested does not exist!')
 })
 
 // Handler for Error 500

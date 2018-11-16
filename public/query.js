@@ -15,10 +15,11 @@ function getData() {
           let result = `<h2>Zoekresultaten</h2>`;
             data.forEach((ind) => {
               console.log(ind)
-            const { nameAlias: {firstName, middleName, lastName, wholeName} } = ind
+            const { euReferenceNumber, nameAlias: {firstName, middleName, lastName, wholeName} } = ind
             result +=
               `<div>
                    <ul class="w3-ul">
+                       <li> euReferenceNumber : ${euReferenceNumber[0]}</li>
                        <li> First : ${firstName[0]}</li>
                        <li> Middle : ${middleName[0]}</li>
                        <li> Last : ${lastName[0]}</li>

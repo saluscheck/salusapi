@@ -7,26 +7,13 @@ const password = 'test545'
 
 mongoose.connect(`mongodb://${user}:${password}@${server}/${database}`)
 
-let SanctionsSchema = new mongoose.Schema({
-  euReferenceNumber : [
-    String
-  ],
-  nameAlias: [
-    {
+let SdnSchema = new mongoose.Schema({
             firstName: [
-                String
-            ],
-            middleName: [
                 String
             ],
             lastName: [
                 String
-            ],
-            wholeName: [
-                String
             ]
-      }
-  ]
-}, {collection: "sanctions_test"})
+}, {collection: "sdn"})
 
-module.exports = mongoose.model('Sanctions', SanctionsSchema)
+module.exports = mongoose.model('Sdn', SdnSchema)
