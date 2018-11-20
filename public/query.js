@@ -9,15 +9,22 @@ function getData() {
     var url = api_path + naam
     console.log(naam)
     console.log(url)
+    document.getElementById('result').innerHTML = '<div class="container">loading ....</div>';
+    document.getElementById("loader").style.display = "inline";
     fetch(url)
       .then((res) => { return res.json() })
       .then((data) => {
-          let result = `<h2>Zoekresultaten</h2>`;
+        if(data.length == 0) {
+          console.log("Empty")
+          document.getElementById("loader").style.display = "none";
+          document.getElementById('result').innerHTML = "Geen resultaten"; 
+        } else {
+          let result = `<h2>Zoekresultaten (${data.length} items)</h2>`;
             data.forEach((ind) => {
               console.log(ind)
             const { euReferenceNumber, nameAlias: {firstName, middleName, lastName, wholeName} } = ind
             result +=
-              `<div>
+              `<div class=row>
                    <ul class="w3-ul">
                        <li> euReferenceNumber : ${euReferenceNumber[0]}</li>
                        <li> First : ${firstName[0]}</li>
@@ -27,7 +34,9 @@ function getData() {
                        <hr />
                    </ul>
                 </div>`;
+                  document.getElementById("loader").style.display = "none";
                   document.getElementById('result').innerHTML = result; //!! Test outside foreach
               });
-    })
+  }
+})
 }
