@@ -6,7 +6,7 @@ function getData() {
   // Online API kan niet in client worden gebruikt bij test op localhost vanwege CORS
     
     document.getElementById('example-table').innerHTML = ""
-    var api_path = "https://salustest-7df6a.appspot.com/sanctions?search="
+    var api_path = "http://localhost:8080/sanctions?search="
     var naam = document.getElementById("searchString").value
     var url = api_path + naam
     console.log(naam)
@@ -17,6 +17,7 @@ function getData() {
     fetch(url)
       .then((res) => { return res.json() })
       .then((data) => {
+        console.log(data)
         if(data.length == 0) {
           console.log("Empty")
           document.getElementById('loader').style.display = "none";
@@ -33,6 +34,9 @@ function getData() {
                 {title:"Voornaam", field: "nameAlias.firstName"},
                 {title:"Achternaam", field: "nameAlias.lastName"},
                 {title:"Volledige naam", field: "nameAlias.wholeName"},
+                {title:"Regulation url", field: "regulation.0.publicationUrl", formatter:"link", formatterParams:{
+                  target: "_blank"
+              }}
             ],
         });
         document.getElementById('loader').style.display = "none";
