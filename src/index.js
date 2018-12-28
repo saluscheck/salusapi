@@ -7,7 +7,9 @@ let sdnRoute = require('./routes/sdn')
 let lxnxRoute = require('./routes/lxnx')
 let path = require('path')
 let bodyParser = require('body-parser')
+var cors = require('cors')
 
+app.use(cors())
 app.use(bodyParser.json())
 
 app.use((req, res, next) => {
