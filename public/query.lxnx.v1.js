@@ -1,5 +1,3 @@
-
-
 const getData = async() => {
   // Bij deployment op Google App Engine poortnummer verwijderen - Bij testen op localhost toevoegen
   // https://salustest-7df6a.appspot.com/lxnx?search=
@@ -12,9 +10,9 @@ const getData = async() => {
     console.log(url)
     document.getElementById('result').innerHTML = '<div class="alert alert-primary">De data wordt opgehaald. Dit kan ca. 15 seconden duren.</div>';
     document.getElementById("loader").style.display = "inline";
-    await fetch(url)
+    fetch(url)
       .then(res => res.json())
-      .then((data) => {
+      .then(data => {
         data = data.Hit
         document.getElementById('result').innerHTML = '<div class="alert alert-primary">De data is ontvangen.</div>';
     
