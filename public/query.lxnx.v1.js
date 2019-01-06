@@ -17,6 +17,8 @@ function getData() {
       .then((res) => { return res.json() })
       .then((data) => {
         data = data.Hit
+        document.getElementById('result').innerHTML = '<div class="alert alert-primary">De data is ontvangen.</div>';
+    
         if(data == undefined) {
           console.log("Empty")
           document.getElementById("loader").style.display = "none";
