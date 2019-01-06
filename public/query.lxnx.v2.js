@@ -18,7 +18,7 @@ async function getData(url) {
 
 }
 
-async function retResults() {
+function retResults() {
   var api_path = "https://salustest-7df6a.appspot.com/lxnx?search="
     var naam =   "rutte" //document.getElementById("Name").value
     var url = api_path + naam
