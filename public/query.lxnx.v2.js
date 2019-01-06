@@ -1,4 +1,4 @@
-document.getElementById('getData').addEventListener('click', getData);
+document.getElementById('getData').addEventListener('click', retResults);
 document.getElementById('getPDF').addEventListener('click', getPDF);
 
 async function getData(url) {
@@ -18,8 +18,8 @@ async function getData(url) {
 
 }
 
-  
-var api_path = "https://salustest-7df6a.appspot.com/lxnx?search="
+function retResults() {
+  var api_path = "https://salustest-7df6a.appspot.com/lxnx?search="
     var naam =   "rutte" //document.getElementById("Name").value
     var url = api_path + naam
     console.log(naam)
@@ -30,4 +30,6 @@ var api_path = "https://salustest-7df6a.appspot.com/lxnx?search="
       
     })
     .catch(reason => console.log(reason.message))
+}  
+
 
