@@ -1,7 +1,6 @@
-document.getElementById('getData').addEventListener('click', getData);
-document.getElementById('getPDF').addEventListener('click', getPDF);
 
-async function getData() {
+
+const getData = async() => {
   // Bij deployment op Google App Engine poortnummer verwijderen - Bij testen op localhost toevoegen
   // https://salustest-7df6a.appspot.com/lxnx?search=
   // http://localhost:8080/lxnx?search=
@@ -14,7 +13,7 @@ async function getData() {
     document.getElementById('result').innerHTML = '<div class="alert alert-primary">De data wordt opgehaald. Dit kan ca. 15 seconden duren.</div>';
     document.getElementById("loader").style.display = "inline";
     await fetch(url)
-      .then((res) => res.json())
+      .then(res => res.json())
       .then((data) => {
         data = data.Hit
         document.getElementById('result').innerHTML = '<div class="alert alert-primary">De data is ontvangen.</div>';
@@ -88,3 +87,6 @@ var doc = new jsPDF({
 doc.autoTable(columns, rows);
 doc.save('sanctions.pdf');
 }
+
+document.getElementById('getData').addEventListener('click', getData);
+document.getElementById('getPDF').addEventListener('click', getPDF);
