@@ -14,7 +14,7 @@ async function getData() {
     document.getElementById('result').innerHTML = '<div class="alert alert-primary">De data wordt opgehaald. Dit kan ca. 15 seconden duren.</div>';
     document.getElementById("loader").style.display = "inline";
     await fetch(url)
-      .then((res) => { return res.json() })
+      .then((res) => res.json())
       .then((data) => {
         data = data.Hit
         document.getElementById('result').innerHTML = '<div class="alert alert-primary">De data is ontvangen.</div>';
