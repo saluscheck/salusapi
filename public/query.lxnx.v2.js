@@ -24,6 +24,7 @@ async function retResults() {
     var url = api_path + naam
     console.log(naam)
     console.log(url)
+    document.getElementById('result').innerHTML = `<div class="alert alert-primary">${ url }</div>`;
     // let data = await getData(url)
     // console.log(data)
 }  
