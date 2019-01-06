@@ -24,7 +24,7 @@ async function retResults() {
     var url = api_path + naam
     console.log(naam)
     console.log(url)
-    const data = await getData(url)
+    let data = await getData(url)
     console.log(data)
 }  
 
