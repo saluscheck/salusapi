@@ -18,13 +18,13 @@ async function getData(url) {
 
 }
 
-function retResults() {
+async function retResults() {
   var api_path = "https://salustest-7df6a.appspot.com/lxnx?search="
     var naam =   "rutte" //document.getElementById("Name").value
     var url = api_path + naam
     console.log(naam)
     console.log(url)
-    getData(url)
+    await getData(url)
     .then(data => {
       console.log(data)
       
