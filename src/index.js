@@ -9,7 +9,14 @@ let path = require('path')
 let bodyParser = require('body-parser')
 var cors = require('cors')
 
-app.use(cors())
+const corsConfig = {
+  origin: ["https://testapi.aml-check.com"],
+  credentials: true,
+  methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
+  allowedHeaders: ['Content-Type']
+};
+
+app.use(cors(corsConfig))
 app.use(bodyParser.json())
 
 app.use((req, res, next) => {
