@@ -10,7 +10,7 @@ const getData = async() => {
     console.log(url)
     document.getElementById('result').innerHTML = '<div class="alert alert-primary">De data wordt opgehaald. Dit kan ca. 15 seconden duren.</div>';
     document.getElementById("loader").style.display = "inline";
-    await fetch(url)
+    fetch(url)
       .then(res => res.json())
       .then(data => {
         data = data.Hit

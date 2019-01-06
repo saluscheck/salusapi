@@ -1,5 +1,4 @@
 document.getElementById('getData').addEventListener('click', retResults);
-document.getElementById('getPDF').addEventListener('click', getPDF);
 
 async function getData(url) {
   // Bij deployment op Google App Engine poortnummer verwijderen - Bij testen op localhost toevoegen
@@ -24,9 +23,9 @@ function retResults() {
     var url = api_path + naam
     console.log(naam)
     console.log(url)
-    document.getElementById('result').innerHTML = "Yello";
+    document.getElementById('result').innerHTML = "Yello"
     // let data = await getData(url)
     // console.log(data)
-}  
+}
 
 
