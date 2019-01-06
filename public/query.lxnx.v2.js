@@ -1,4 +1,4 @@
-document.getElementById('getData').addEventListener('click', returnResults);
+document.getElementById('getData').addEventListener('click', retResults);
 document.getElementById('getPDF').addEventListener('click', getPDF);
 
 async function getData(url) {
@@ -18,7 +18,7 @@ async function getData(url) {
 
 }
 
-async function returnResults() {
+function retResults() {
   var api_path = "https://salustest-7df6a.appspot.com/lxnx?search="
     var naam =   document.getElementById("Name").value
     var url = api_path + naam
