@@ -21,7 +21,7 @@ async function getData(url) {
 async function retResults() {
   var api_path = "https://salustest-7df6a.appspot.com/lxnx?search="
     var naam =   "rutte" //document.getElementById("Name").value
-    var url = api_path + naam
+    url = api_path + naam
     console.log(naam)
     console.log(url)
     document.getElementById('result').innerHTML = `<div class="alert alert-primary">${ url }</div>`;
