@@ -10,9 +10,9 @@ const getData = async() => {
     console.log(url)
     document.getElementById('result').innerHTML = '<div class="alert alert-primary">De data wordt opgehaald. Dit kan ca. 15 seconden duren.</div>';
     document.getElementById("loader").style.display = "inline";
-    fetch(url)
-      .then(res => res.json())
-      .then(data => {
+    await fetch(url)
+      .then(async(res) => res.json())
+      .then(async(data) => {
         data = data.Hit
         document.getElementById('result').innerHTML = '<div class="alert alert-primary">De data is ontvangen.</div>';
     
@@ -26,7 +26,7 @@ const getData = async() => {
           let result = 
               `
                 <div class="container">
-                  <h2>Zoekresultaten (${data.length} items)</h2>
+                  <h2>Zoekresultaten (${ data.length } items)</h2>
                   <table class="table table-hover">
                   <thead>
                       <tr>
