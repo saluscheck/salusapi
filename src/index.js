@@ -8,6 +8,14 @@ let lxnxRoute = require('./routes/lxnx')
 let lxnxflrRoute = require('./routes/lxnx.filter')
 let path = require('path')
 let bodyParser = require('body-parser')
+var cors = require('cors')
+
+//const corsConfig = {
+//  origin: ["*"],
+//  methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
+//  allowedHeaders: ['Origin', 'Content-Type']
+//};
+app.use(cors())
 
 app.use(bodyParser.json())
 
