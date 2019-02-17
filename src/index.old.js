@@ -5,10 +5,18 @@ let customerRoute = require('./routes/customer')
 let sanctionsRoute = require('./routes/sanctions')
 let sdnRoute = require('./routes/sdn')
 let lxnxRoute = require('./routes/lxnx')
-let lxnxflrRoute = require('./routes/lxnx.filter')
 let path = require('path')
 let bodyParser = require('body-parser')
+var cors = require('cors')
 
+const corsConfig = {
+  origin: ["https://testapi.aml-check.com"],
+  credentials: true,
+  methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
+  allowedHeaders: ['Content-Type']
+};
+
+app.use(cors(corsConfig))
 app.use(bodyParser.json())
 
 app.use((req, res, next) => {
@@ -20,7 +28,6 @@ app.use(customerRoute)
 app.use(sanctionsRoute)
 app.use(sdnRoute)
 app.use(lxnxRoute)
-app.use(lxnxflrRoute)
 app.use(express.static('public'))
 
 // Hander for 404 - Not found
